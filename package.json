@@ -12,7 +12,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
-  "homepage": "https://jeffcleds.github.io",
+  "homepage": "https://ernie-cledera.github.io",
   "dependencies": {
     "@gsap/react": "^2.1.2",
     "@hookform/resolvers": "^3.9.0",
