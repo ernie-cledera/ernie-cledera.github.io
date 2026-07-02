@@ -2,10 +2,10 @@ import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { softSkillsData, technicalSkillsData } from "@/data/portfolioData";
 import { Separator } from "@/components/ui/separator";
-import { useDarkVeil } from "@/components/layout/DarkVeilProvider";
+import { useDarkVeil } from "@/components/layout/DarkVeilProvider"; // Import useDarkVeil
 
 const SkillsCard: React.FC = () => {
-  const { isDarkVeilActive } = useDarkVeil();
+  const { isDarkVeilActive } = useDarkVeil(); // Use DarkVeil hook
 
   return (
     <Card className={`p-6 ${isDarkVeilActive ? 'border border-primary/20 backdrop-blur-md' : ''}`}>
