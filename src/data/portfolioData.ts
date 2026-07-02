@@ -270,7 +270,7 @@ export const projectsData: Project[] = [
     description: "A responsive personal portfolio website built with React, TypeScript, and Tailwind CSS, showcasing my skills and projects.",
     image: "/my-portfolio-website.jpg", // Updated path
     technologies: ["React", "TypeScript", "Tailwind CSS", "Vite"],
-    githubLink: "https://github.com/jeffcleds/jeffcleds.github.io",
+    githubLink: "https://github.com/ernie-cledera/ernie-cledera.github.io",
     liveLink: "/projects/portfolio-website", // Updated to new route
   },
   {
@@ -279,7 +279,7 @@ export const projectsData: Project[] = [
     description: "A comprehensive school management system designed for Calabanga Community College, handling student records, course management, and administrative tasks.",
     image: "/calabanga-sms.png", // Updated path
     technologies: ["PHP", "MySQL", "HTML", "CSS", "JavaScript", "Laravel", "Filament"],
-    githubLink: "https://github.com/jeffcleds/E-CCC", // Updated GitHub link
+    githubLink: "https://github.com/ernie-cledera/E-CCC", // Updated GitHub link
     liveLink: "/projects/e-ccc", // Updated to new route /projects/e-ccc
   },
   {

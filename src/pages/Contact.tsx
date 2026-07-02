@@ -152,7 +152,7 @@ const Contact = () => {
             <CardContent className="space-y-4">
               <div className="flex items-center space-x-3">
                 <Github className="h-5 w-5 text-muted-foreground" />
-                <a href="https://github.com/jeffcleds" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">github.com/jeffcleds</a>
+                <a href="https://github.com/ernie-cledera" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">github.com/ernie-cledera</a>
               </div>
               <div className="flex items-center space-x-3">
                 <LinkIcon className="h-5 w-5 text-muted-foreground" />
