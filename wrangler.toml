@@ -1,8 +1,8 @@
-name = "cledera-ernie"
+# Cloudflare Pages Configuration
+
+name = "portfolio"
 compatibility_date = "2024-01-01"
-pages_build_output_dir = "./dist"
 
-[vars]
-
-[assets]
-directory = "./dist"
+[pages]
+build_command = "npm run build"
+build_output_directory = "dist"
