@@ -8,7 +8,6 @@ import { ArrowLeft } from "lucide-react";
 import { projectsData } from "@/data/portfolioData";
 import { useDarkVeil } from "@/components/layout/DarkVeilProvider";
 import SimpleCalculatorDemo from "@/components/portfolio/SimpleCalculatorDemo";
-import SEO from "@/components/layout/SEO";
 
 const SimpleCalculatorProject: React.FC = () => {
   const { isDarkVeilActive } = useDarkVeil();
@@ -22,12 +21,6 @@ const SimpleCalculatorProject: React.FC = () => {
 
   return (
     <div className="container mx-auto py-12 px-4">
-      <SEO 
-        title="Interactive Simple Calculator Live Demo | Ernie Joseph Cledera"
-        description="Try the interactive custom calculator utility built with React Hooks, TypeScript, and customized styling parameters."
-        keywords="React calculator demo, state management, basic UI design, calculation logic"
-        ogImage={project.image}
-      />
       <div className="mb-8">
         <Button variant="outline" asChild>
           <Link to="/projects">
@@ -60,6 +53,8 @@ const SimpleCalculatorProject: React.FC = () => {
                 </Badge>
               ))}
             </div>
+            
+            {/* Removed Links section as the demo is embedded */}
           </CardContent>
         </div>
 

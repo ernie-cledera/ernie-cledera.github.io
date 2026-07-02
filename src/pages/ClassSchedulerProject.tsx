@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { Github, ArrowLeft } from "lucide-react";
 import { projectsData } from "@/data/portfolioData";
 import { useDarkVeil } from "@/components/layout/DarkVeilProvider";
-import SEO from "@/components/layout/SEO";
 
 const ClassSchedulerProject: React.FC = () => {
   const { isDarkVeilActive } = useDarkVeil();
@@ -22,12 +21,6 @@ const ClassSchedulerProject: React.FC = () => {
 
   return (
     <div className="container mx-auto py-12 px-4">
-      <SEO 
-        title="Class Scheduler with Conflict Detection | Ernie Joseph Cledera"
-        description="A look at the smart educational class scheduling database system with automated conflict detection algorithms built using C# and MySQL."
-        keywords="class scheduler, scheduling database, C# database application, timetable algorithm conflict prevention"
-        ogImage={project.image}
-      />
       <div className="mb-8">
         <Button variant="outline" asChild>
           <Link to="/projects">
