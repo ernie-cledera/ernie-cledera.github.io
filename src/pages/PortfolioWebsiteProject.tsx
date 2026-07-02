@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Github, ArrowLeft, Link as LinkIcon } from "lucide-react";
 import { projectsData } from "@/data/portfolioData";
 import { useDarkVeil } from "@/components/layout/DarkVeilProvider";
+import SEO from "@/components/layout/SEO";
 
 const PortfolioWebsiteProject: React.FC = () => {
   const { isDarkVeilActive } = useDarkVeil();
@@ -20,6 +21,12 @@ const PortfolioWebsiteProject: React.FC = () => {
 
   return (
     <div className="container mx-auto py-12 px-4">
+      <SEO 
+        title="Personal Portfolio Website Case Study | Ernie Joseph Cledera"
+        description="Technical breakdown and implementation details of this responsive portfolio website built with React, TypeScript, GSAP, and Tailwind CSS."
+        keywords="portfolio development, React portfolio, TypeScript GSAP animations, Tailwind CSS design showcase"
+        ogImage={project.image}
+      />
       <div className="mb-8">
         <Button variant="outline" asChild>
           <Link to="/projects">

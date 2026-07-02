@@ -42,12 +42,40 @@ export default function Index() {
     "Software Developer"
   ];
 
+  // Rich metadata structure for Google search algorithms
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ernie Joseph Cledera",
+    "jobTitle": "IT Specialist, Web Developer & Virtual Assistant",
+    "url": "https://ernie-cledera.github.io",
+    "image": "https://ernie-cledera.github.io/ernie-joseph-cledera.jpg",
+    "sameAs": [
+      "https://github.com/ernie-cledera",
+      "https://www.linkedin.com/in/ernie-cledera/"
+    ],
+    "knowsAbout": [
+      "Web Development",
+      "React",
+      "TypeScript",
+      "Virtual Assistance",
+      "Database Management",
+      "IT Administration",
+      "Workflow Automation"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "Philippines"
+    }
+  };
+
   return (
     <div className="flex flex-col items-center justify-center min-h-[calc(100vh-14rem)] text-center px-4 py-12">
       <SEO 
         title="Ernie Joseph Cledera | IT Specialist, Web Developer & Virtual Assistant"
         description="Welcome to my official portfolio website. I'm Ernie Joseph Cledera, a tech-savvy Virtual Assistant and IT Specialist with over 5+ years of experience optimizing workflows, web development, and remote operations."
-        keywords="Ernie Joseph Cledera, IT Specialist, Web Developer, Virtual Assistant, Remote Support, Portfolio, Tech Support"
+        keywords="Ernie Joseph Cledera, IT Specialist, Web Developer, Virtual Assistant, Remote Support, Portfolio, Tech Support, Ernie Cledera"
+        jsonLd={personSchema}
       />
       <img
         src="/ernie-joseph-cledera.jpg"

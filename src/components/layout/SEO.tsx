@@ -7,13 +7,15 @@ interface SEOProps {
   description?: string;
   keywords?: string;
   ogImage?: string;
+  jsonLd?: Record<string, any>;
 }
 
 const SEO: React.FC<SEOProps> = ({
   title = "Ernie Joseph Cledera | IT Specialist, Web Developer & Virtual Assistant",
   description = "Portfolio of Ernie Joseph Cledera, a tech-savvy Virtual Assistant, IT Specialist, and Web Developer with over 5+ years of experience optimizing workflows, managing data, and building responsive web applications.",
   keywords = "Ernie Joseph Cledera, IT Specialist, Web Developer, Virtual Assistant, Portfolio, React Developer, TypeScript, Philippines, Computer Engineering",
-  ogImage = "/ernie-joseph-cledera.jpg"
+  ogImage = "/ernie-joseph-cledera.jpg",
+  jsonLd
 }) => {
   useEffect(() => {
     // Dynamic document title
@@ -63,7 +65,28 @@ const SEO: React.FC<SEOProps> = ({
       document.head.appendChild(ogImg);
     }
     ogImg.setAttribute("content", ogImage);
-  }, [title, description, keywords, ogImage]);
+
+    // Handle structured JSON-LD schema
+    let existingJsonLd = document.getElementById("jsonLdSchema");
+    if (existingJsonLd) {
+      existingJsonLd.remove();
+    }
+
+    if (jsonLd) {
+      const script = document.createElement("script");
+      script.id = "jsonLdSchema";
+      script.type = "application/ld+json";
+      script.innerHTML = JSON.stringify(jsonLd);
+      document.head.appendChild(script);
+    }
+
+    return () => {
+      const cleanupJsonLd = document.getElementById("jsonLdSchema");
+      if (cleanupJsonLd) {
+        cleanupJsonLd.remove();
+      }
+    };
+  }, [title, description, keywords, ogImage, jsonLd]);
 
   return null;
 };

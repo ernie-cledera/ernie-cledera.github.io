@@ -1,14 +1,6 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
+# Directives for search engine crawler bots
 User-agent: *
 Allow: /
+
+# Sitemap path declaration
+Sitemap: https://ernie-cledera.github.io/sitemap.xml
