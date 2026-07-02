@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Github, ArrowLeft, Download, BookOpen } from "lucide-react";
 import { projectsData } from "@/data/portfolioData";
 import { useDarkVeil } from "@/components/layout/DarkVeilProvider";
+import SEO from "@/components/layout/SEO";
 
 const CalabangaProject: React.FC = () => {
   const { isDarkVeilActive } = useDarkVeil();
@@ -20,6 +21,12 @@ const CalabangaProject: React.FC = () => {
 
   return (
     <div className="container mx-auto py-12 px-4">
+      <SEO 
+        title="E-CCC Academic Records Management System | Projects"
+        description="Detailed review of the web-based enrollment and academic records database system designed for Calabanga Community College using Laravel, Filament, and MySQL."
+        keywords="Calabanga Community College, enrollment system database, Filament PHP, Laravel school system, student registration algorithm"
+        ogImage={project.image}
+      />
       <div className="mb-8">
         <Button variant="outline" asChild>
           <Link to="/projects">

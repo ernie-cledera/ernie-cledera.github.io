@@ -16,6 +16,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { ZoomIn } from "lucide-react";
+import SEO from "@/components/layout/SEO";
 
 const WorkstationPage: React.FC = () => {
   const { isDarkVeilActive } = useDarkVeil();
@@ -30,6 +31,11 @@ const WorkstationPage: React.FC = () => {
 
   return (
     <div className="container mx-auto py-8 md:py-12 px-4">
+      <SEO 
+        title="My Tech Setup & Workstation | Ernie Joseph Cledera"
+        description="Explore the specifications, hardware peripherals, display monitors, and connectivity configuration of my personal remote workstation digital command center."
+        keywords="Ryzen 7 5700x, RTX 2070 Super, Xiaomi G34WQi, attack shark r11, setup tour, hardware setup, remote workstation, home office"
+      />
       <ScrollReveal delay={0}>
         <h1 className="text-3xl md:text-4xl font-bold text-center mb-6 md:mb-10">My Workstation</h1>
       </ScrollReveal>

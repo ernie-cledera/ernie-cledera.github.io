@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import IntroCard from '@/components/portfolio/IntroCard';
 import TypewriterEffect from '@/components/TypewriterEffect';
 import ShinyText from '@/components/animations/ShinyText'; // Import ShinyText
+import SEO from '@/components/layout/SEO';
 import { useDarkVeil } from '@/components/layout/DarkVeilProvider';
 import { useTheme } from 'next-themes';
 
@@ -41,12 +42,13 @@ export default function Index() {
     "Software Developer"
   ];
 
-  const handleAnimationComplete = () => {
-    console.log('Main heading animation complete!');
-  };
-
   return (
     <div className="flex flex-col items-center justify-center min-h-[calc(100vh-14rem)] text-center px-4 py-12">
+      <SEO 
+        title="Ernie Joseph Cledera | IT Specialist, Web Developer & Virtual Assistant"
+        description="Welcome to my official portfolio website. I'm Ernie Joseph Cledera, a tech-savvy Virtual Assistant and IT Specialist with over 5+ years of experience optimizing workflows, web development, and remote operations."
+        keywords="Ernie Joseph Cledera, IT Specialist, Web Developer, Virtual Assistant, Remote Support, Portfolio, Tech Support"
+      />
       <img
         src="/ernie-joseph-cledera.jpg"
         alt="Ernie Joseph Cledera"
@@ -64,18 +66,14 @@ export default function Index() {
         className="text-xl text-muted-foreground mb-8 max-w-2xl"
       />
       <div className="mb-12 flex gap-4">
-        {/* Removed MagnetEffect wrapper */}
         <Button asChild size="lg">
           <Link to="/projects">View My Work</Link>
         </Button>
-        {/* Removed MagnetEffect wrapper */}
         <Button asChild size="lg" variant="outline">
           <Link to="/about">About Me</Link>
         </Button>
       </div>
       <IntroCard />
-
-      {/* The LogoLoop component has been removed */}
     </div>
   );
 }

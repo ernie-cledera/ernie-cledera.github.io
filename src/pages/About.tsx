@@ -10,10 +10,16 @@ import LanguagesCard from "@/components/portfolio/LanguagesCard";
 import EducationSection from "@/components/portfolio/EducationSection";
 import AffiliationsSection from "@/components/portfolio/AffiliationsSection"; // Import new component
 import ScrollReveal from "@/components/animations/ScrollReveal"; // Import the new ScrollReveal component
+import SEO from "@/components/layout/SEO";
 
 const About = () => {
   return (
     <div className="container mx-auto py-12 px-4">
+      <SEO 
+        title="About Ernie Joseph Cledera | Skills, Experience & Affiliations"
+        description="Learn more about Ernie Joseph Cledera: technical and soft skills, professional experience at Avatone Technologies, Mr. Rooter Plumbing, Concentrix, and education timeline."
+        keywords="Ernie Joseph Cledera skills, work experience, education, affiliations, Alpha Phi Omega, Bicolano Gaming Community"
+      />
       <h1 className="text-4xl font-bold text-center mb-10">About Me</h1>
 
       <div className="space-y-8">

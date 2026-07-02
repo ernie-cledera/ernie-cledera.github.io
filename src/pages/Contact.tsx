@@ -9,6 +9,7 @@ import { showError } from "@/utils/toast";
 import MagnetEffect from "@/components/animations/MagnetEffect"; // Keep import for other uses if any
 import { useDarkVeil } from "@/components/layout/DarkVeilProvider";
 import LogoIcon from "@/components/layout/LogoIcon";
+import SEO from "@/components/layout/SEO";
 
 const Contact = () => {
   const { isDarkVeilActive } = useDarkVeil();
@@ -22,6 +23,11 @@ const Contact = () => {
 
   return (
     <div className={`container mx-auto py-12 px-4 ${isDarkVeilActive ? 'bg-transparent' : ''}`}>
+      <SEO 
+        title="Contact Ernie Joseph Cledera | Remote Support & Collaboration"
+        description="Get in touch with Ernie Joseph Cledera for IT administration, virtual assistance, web development opportunities, or download his official resume."
+        keywords="Contact Ernie Joseph Cledera, hire developer, hire Virtual Assistant, Philippines freelancer, download resume"
+      />
       <h1 className="text-4xl font-bold text-center mb-10">Get in Touch</h1>
       <div className="grid md:grid-cols-2 gap-10">
         <Card className={cardClassNames}>
