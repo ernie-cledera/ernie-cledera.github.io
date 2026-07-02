@@ -55,7 +55,7 @@ export interface WorkstationCategory {
 export const profileData = {
   name: "Ernie Joseph Cledera",
   profileImage: "/ernie-joseph-cledera.jpg", // Replace with your profile image path, e/g., "/profile.jpg"
-  introduction: `My name is <span class="highlight">Ernie Joseph Cledera</span>. I’m a tech-savvy Virtual Assistant with an Information Technology and Computer Engineering background, and over 5+ years of experience optimizing workflows, managing data, and leveraging digital tools to deliver accurate, high-quality support. I’m a strong communicator skilled in client relations, time management, and using technology to boost productivity.`,
+  introduction: `My name is <span class="highlight">Ernie Joseph Cledera</span>. I’m an Information Technology professional with a Computer Engineering and Virtual Assistance background, specializing in workflow automation, AI integration, and digital operations. With over 7 years of experience, I help businesses streamline processes, improve productivity, and implement technology-driven solutions that deliver measurable results.`,
   birthDate: '1998-04-09',
   email: "ernie@cledera.dev",
   phone: "+63 929 652 9698",
