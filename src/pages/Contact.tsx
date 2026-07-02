@@ -19,15 +19,8 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Retrieve access key from env or placeholder
-    // To get your free key: go to https://web3forms.com/ and put your email
-    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || "YOUR_WEB3FORMS_ACCESS_KEY";
-
-    if (accessKey === "YOUR_WEB3FORMS_ACCESS_KEY") {
-      showError("Please configure your Web3Forms Access Key to receive messages. (See details below the form)");
-      setIsSubmitting(false);
-      return;
-    }
+    // Retrieve access key from env or use your direct key as fallback
+    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || "468c432c-4311-435e-bba2-2a734177d628";
 
     const formData = new FormData(e.currentTarget);
     formData.append("access_key", accessKey);
@@ -102,14 +95,13 @@ const Contact = () => {
             </CardContent>
           </Card>
 
-          {/* Setup Help Card for user guidance */}
-          <Card className={`${cardClassNames} border-dashed border-primary/40`}>
+          {/* Form Status Banner */}
+          <Card className={`${cardClassNames} border-dashed border-green-500/40 bg-green-500/5`}>
             <CardHeader className="py-4">
-              <CardTitle className="text-sm font-semibold">💡 How to activate this form:</CardTitle>
+              <CardTitle className="text-sm font-semibold text-green-500">✓ Form Activated</CardTitle>
             </CardHeader>
             <CardContent className="text-xs text-muted-foreground space-y-2">
-              <p>1. Go to <a href="https://web3forms.com/" target="_blank" rel="noopener noreferrer" className="text-primary underline">Web3Forms</a> and enter your email address to receive a free Access Key.</p>
-              <p>2. Set your key as environment variable <code className="bg-muted px-1 py-0.5 rounded text-primary">VITE_WEB3FORMS_KEY</code>, or replace the placeholder value inside <code className="bg-muted px-1 py-0.5 rounded">src/pages/Contact.tsx</code>.</p>
+              <p>Your Web3Forms Access Key is successfully connected and initialized! All messages submitted through this form are instantly sent to your email inbox.</p>
             </CardContent>
           </Card>
         </div>
