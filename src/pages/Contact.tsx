@@ -19,32 +19,28 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    const form = e.currentTarget;
     const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || "468c432c-4311-435e-bba2-2a734177d628";
 
-    const formData = new FormData(e.currentTarget);
-    const object = Object.fromEntries(formData.entries());
-    object.access_key = accessKey;
-    const json = JSON.stringify(object);
+    const formData = new FormData(form);
+    formData.append("access_key", accessKey);
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: json
+        body: formData
       });
 
       const data = await response.json();
 
       if (data.success) {
         showSuccess("Message sent successfully! I will get back to you soon.");
-        e.currentTarget.reset();
+        form.reset();
       } else {
         showError(data.message || "Something went wrong. Please try again.");
       }
     } catch (error) {
+      console.error("Submission error:", error);
       showError("Failed to connect to the server. Please check your internet connection.");
     } finally {
       setIsSubmitting(false);
