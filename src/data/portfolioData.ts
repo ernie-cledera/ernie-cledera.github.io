@@ -288,7 +288,7 @@ export const projectsData: Project[] = [
     description: "A web application to help the school manage and visualize class schedules and to check if there is a conflict in the schedule.",
     image: "/class-scheduler.png", // Updated path
     technologies: ["C#", "MySQL", "Visual Studio"],
-    githubLink: "/not-found-repo", // Changed to a local route to trigger 404
+    githubLink: "https://github.com/ernie-cledera/Class-Scheduler-v1",
     liveLink: "/projects/class-scheduler", // Updated to new route
   },
   {
