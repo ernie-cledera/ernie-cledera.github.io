@@ -64,6 +64,18 @@ export const profileData = {
 
 export const experienceData: Experience[] = [
   {
+    id: "avatone",
+    title: "Avatone Technologies Inc.",
+    subtitle: "Community Manager",
+    date: "2026 - Present",
+    responsibilities: [
+      "Manages the user community and social media presence for Avatone.",
+      "Performs QA testing for the application to ensure quality and functionality.",
+      "Provides virtual assistance and administrative support.",
+    ],
+    logo: "/placeholder.svg",
+  },
+  {
     id: "mr-rooter",
     title: "Mr. Rooter Plumbing",
     subtitle: "Senior Dispatcher",
