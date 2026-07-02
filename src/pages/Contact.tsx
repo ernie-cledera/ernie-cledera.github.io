@@ -19,16 +19,21 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Retrieve access key from env or use your direct key as fallback
     const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || "468c432c-4311-435e-bba2-2a734177d628";
 
     const formData = new FormData(e.currentTarget);
-    formData.append("access_key", accessKey);
+    const object = Object.fromEntries(formData.entries());
+    object.access_key = accessKey;
+    const json = JSON.stringify(object);
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body: formData
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: json
       });
 
       const data = await response.json();
@@ -92,16 +97,6 @@ const Contact = () => {
                   )}
                 </Button>
               </form>
-            </CardContent>
-          </Card>
-
-          {/* Form Status Banner */}
-          <Card className={`${cardClassNames} border-dashed border-green-500/40 bg-green-500/5`}>
-            <CardHeader className="py-4">
-              <CardTitle className="text-sm font-semibold text-green-500">✓ Form Activated</CardTitle>
-            </CardHeader>
-            <CardContent className="text-xs text-muted-foreground space-y-2">
-              <p>Your Web3Forms Access Key is successfully connected and initialized! All messages submitted through this form are instantly sent to your email inbox.</p>
             </CardContent>
           </Card>
         </div>
