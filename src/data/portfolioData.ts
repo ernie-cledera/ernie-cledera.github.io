@@ -73,7 +73,7 @@ export const experienceData: Experience[] = [
       "Performs QA testing for the application to ensure quality and functionality.",
       "Provides virtual assistance and administrative support.",
     ],
-    logo: "/placeholder.svg",
+    logo: "/avatone_technologies_logo.jpg",
   },
   {
     id: "mr-rooter",
