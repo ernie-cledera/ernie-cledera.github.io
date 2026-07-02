@@ -67,9 +67,6 @@ const Contact = () => {
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Hidden input for Web3Forms dynamic email subject line injection */}
-                <input type="hidden" name="subject" value="{{msg_subject}}" />
-                
                 <div>
                   <Label htmlFor="name">Name</Label>
                   <Input id="name" name="name" type="text" placeholder="Your Name" required />
@@ -79,8 +76,8 @@ const Contact = () => {
                   <Input id="email" name="email" type="email" placeholder="your@email.com" required />
                 </div>
                 <div>
-                  <Label htmlFor="msg_subject">Subject</Label>
-                  <Input id="msg_subject" name="msg_subject" type="text" placeholder="Subject of your message" required />
+                  <Label htmlFor="subject">Subject</Label>
+                  <Input id="subject" name="subject" type="text" placeholder="Subject of your message" required />
                 </div>
                 <div>
                   <Label htmlFor="message">Message</Label>
