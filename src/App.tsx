@@ -3,12 +3,13 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HashRouter, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import Layout from "./components/layout/Layout";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import ProjectsPage from "./pages/ProjectsPage";
-import WorkstationPage from "./pages/WorkstationPage"; // Import new WorkstationPage
+import WorkstationPage from "./pages/WorkstationPage";
 import NotFound from "./pages/NotFound";
 import SimpleCalculatorProject from "./pages/SimpleCalculatorProject";
 import CalabangaProject from "./pages/CalabangaProject";
@@ -41,7 +42,6 @@ const ThemeWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => 
 
   return <>{children}</>;
 };
-
 
 const AppContent = () => {
   const { isDarkVeilActive } = useDarkVeil();
@@ -79,7 +79,7 @@ const AppContent = () => {
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<About />} />
               <Route path="/projects" element={<ProjectsPage />} />
-              <Route path="/workstation" element={<WorkstationPage />} /> {/* New Workstation Route */}
+              <Route path="/workstation" element={<WorkstationPage />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/projects/portfolio-website" element={<PortfolioWebsiteProject />} />
               <Route path="/projects/e-ccc" element={<CalabangaProject />} />
@@ -100,9 +100,11 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
       <DarkVeilProvider>
-        <ThemeWrapper>
-          <AppContent />
-        </ThemeWrapper>
+        <HelmetProvider>
+          <ThemeWrapper>
+            <AppContent />
+          </ThemeWrapper>
+        </HelmetProvider>
       </DarkVeilProvider>
     </ThemeProvider>
   </QueryClientProvider>

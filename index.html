@@ -3,8 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>cledera.ernie</title>
+    <meta name="description" content="Portfolio of Ernie Joseph Cledera - IT Specialist, Web Developer, and Virtual Assistant with 5+ years of experience in workflow optimization and digital tools." />
+    <meta name="author" content="Ernie Joseph Cledera" />
+    <meta name="keywords" content="Ernie Cledera, Portfolio, IT Specialist, Web Developer, Virtual Assistant, Software Developer, Philippines" />
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Ernie Joseph Cledera - Portfolio" />
+    <meta property="og:description" content="Portfolio of Ernie Joseph Cledera - IT Specialist, Web Developer, and Virtual Assistant with 5+ years of experience." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ernie-cledera.github.io" />
+    <meta property="og:image" content="https://ernie-cledera.github.io/ernie-joseph-cledera.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ernie Joseph Cledera - Portfolio" />
+    <meta name="twitter:description" content="Portfolio of Ernie Joseph Cledera - IT Specialist, Web Developer, and Virtual Assistant." />
+    <meta name="twitter:image" content="https://ernie-cledera.github.io/ernie-joseph-cledera.jpg" />
+    
+    <title>Ernie Joseph Cledera - Portfolio</title>
     <link rel="icon" type="image/png" href="/Logo Blue.png" />
+    <link rel="canonical" href="https://ernie-cledera.github.io" />
   </head>
 
   <body>
@@ -12,3 +32,223 @@
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
+</dyad-file>
+</tool_call>
+<think>
+Now let me create a SEO component that can be used across pages to add page-specific meta tags. I'll also need to update the App.tsx to include structured data.
+</think>
+Now let me create a SEO component for page-specific metadata:
+<dyad-write path="src/components/layout/SEO.tsx" description="Creating an SEO component for page-specific metadata">
+"use client";
+
+import React, { useEffect } from 'react';
+
+interface SEOProps {
+  title: string;
+  description: string;
+  image?: string;
+  url?: string;
+  keywords?: string;
+}
+
+const SEO: React.FC<SEOProps> = ({
+  title,
+  description,
+  image = "https://ernie-cledera.github.io/ernie-joseph-cledera.jpg",
+  url = "https://ernie-cledera.github.io",
+  keywords = "Ernie Cledera, Portfolio, IT Specialist, Web Developer, Virtual Assistant"
+}) => {
+  useEffect(() => {
+    // Update document title
+    document.title = title;
+
+    // Update meta description
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', description);
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = description;
+      document.head.appendChild(meta);
+    }
+
+    // Update Open Graph tags
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) {
+      ogTitle.setAttribute('content', title);
+    } else {
+      const meta = document.createElement('meta');
+      meta.setAttribute('property', 'og:title');
+      meta.content = title;
+      document.head.appendChild(meta);
+    }
+
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    if (ogDescription) {
+      ogDescription.setAttribute('content', description);
+    } else {
+      const meta = document.createElement('meta');
+      meta.setAttribute('property', 'og:description');
+      meta.content = description;
+      document.head.appendChild(meta);
+    }
+
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) {
+      ogUrl.setAttribute('content', url);
+    } else {
+      const meta = document.createElement('meta');
+      meta.setAttribute('property', 'og:url');
+      meta.content = url;
+      document.head.appendChild(meta);
+    }
+
+    const ogImage = document.querySelector('meta[property="og:image"]');
+    if (ogImage) {
+      ogImage.setAttribute('content', image);
+    } else {
+      const meta = document.createElement('meta');
+      meta.setAttribute('property', 'og:image');
+      meta.content = image;
+      document.head.appendChild(meta);
+    }
+
+    // Update Twitter tags
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twitterTitle) {
+      twitterTitle.setAttribute('content', title);
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'twitter:title';
+      meta.content = title;
+      document.head.appendChild(meta);
+    }
+
+    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+    if (twitterDescription) {
+      twitterDescription.setAttribute('content', description);
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'twitter:description';
+      meta.content = description;
+      document.head.appendChild(meta);
+    }
+
+    const twitterImage = document.querySelector('meta[name="twitter:image"]');
+    if (twitterImage) {
+      twitterImage.setAttribute('content', image);
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'twitter:image';
+      meta.content = image;
+      document.head.appendChild(meta);
+    }
+
+    // Update keywords
+    const keywordsMeta = document.querySelector('meta[name="keywords"]');
+    if (keywordsMeta) {
+      keywordsMeta.setAttribute('content', keywords);
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'keywords';
+      meta.content = keywords;
+      document.head.appendChild(meta);
+    }
+
+    // Update canonical URL
+    const canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (canonicalLink) {
+      canonicalLink.setAttribute('href', url);
+    } else {
+      const link = document.createElement('link');
+      link.rel = 'canonical';
+      link.href = url;
+      document.head.appendChild(link);
+    }
+  }, [title, description, image, url, keywords]);
+
+  return null;
+};
+
+export default SEO;
+</think>
+Now let me update the Index.tsx page with SEO:
+<dyad-write path="src/pages/Index.tsx" description="Update Index.tsx with SEO component">
+"use client";
+
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import IntroCard from '@/components/portfolio/IntroCard';
+import TypewriterEffect from '@/components/TypewriterEffect';
+import ShinyText from '@/components/animations/ShinyText';
+import { useDarkVeil } from '@/components/layout/DarkVeilProvider';
+import { useTheme } from 'next-themes';
+import SEO from '@/components/layout/SEO';
+
+type CustomCSSProperties = React.CSSProperties & Record<`--${string}`, string | number>;
+
+export default function Index() {
+  const { isDarkVeilActive } = useDarkVeil();
+  const { theme } = useTheme();
+
+  const isDarkBackground = isDarkVeilActive || theme === 'dark';
+
+  const shinyTextStyle: CustomCSSProperties = isDarkBackground
+    ? {
+        '--muted-foreground': '240 4% 85%',
+        '--primary-foreground': '45 100% 50%',
+      }
+    : {
+        '--muted-foreground': '217 53% 15%',
+        '--primary-foreground': '220 80% 50%',
+      };
+
+  const jobTitles = [
+    "IT Specialist",
+    "Web Developer",
+    "Virtual Assistant",
+    "Network Specialist",
+    "Dispatcher",
+    "Software Developer"
+  ];
+
+  return (
+    <>
+      <SEO
+        title="Ernie Joseph Cledera - Portfolio"
+        description="Portfolio of Ernie Joseph Cledera - IT Specialist, Web Developer, and Virtual Assistant with 5+ years of experience in workflow optimization and digital tools."
+        url="https://ernie-cledera.github.io"
+        keywords="Ernie Cledera, Portfolio, IT Specialist, Web Developer, Virtual Assistant, Software Developer, Philippines, Computer Engineering"
+      />
+      <div className="flex flex-col items-center justify-center min-h-[calc(100vh-14rem)] text-center px-4 py-12">
+        <img
+          src="/ernie-joseph-cledera.jpg"
+          alt="Ernie Joseph Cledera"
+          style={{ width: 'clamp(150px, 25vw, 450px)', height: 'clamp(150px, 25vw, 450px)' }}
+          className="rounded-full object-cover mb-8 transition-transform duration-300 ease-in-out border-4 border-primary shadow-lg hover:scale-105 hover:shadow-xl hover:shadow-primary/50"
+        />
+        <h1 className="text-5xl font-extrabold tracking-tight mb-4">
+          <span className={isDarkBackground ? 'text-foreground/65' : ''}>Hello, I'm</span>{' '}
+          <span className="">
+            <ShinyText style={shinyTextStyle}>Ernie Joseph Cledera</ShinyText>
+          </span>
+        </h1>
+        <TypewriterEffect
+          words={jobTitles}
+          className="text-xl text-muted-foreground mb-8 max-w-2xl"
+        />
+        <div className="mb-12 flex gap-4">
+          <Button asChild size="lg">
+            <Link to="/projects">View My Work</Link>
+          </Button>
+          <Button asChild size="lg" variant="outline">
+            <Link to="/about">About Me</Link>
+          </Button>
+        </div>
+        <IntroCard />
+      </div>
+    </>
+  );
+}
