@@ -23,14 +23,16 @@ const Contact = () => {
     const form = e.currentTarget;
     const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || "468c432c-4311-435e-bba2-2a734177d628";
 
-    const formData = new FormData(form);
-    formData.append("access_key", accessKey);
+    const originalData = new FormData(form);
     
-    // Duplicate the subject value to a custom key so Web3Forms renders it in the email body table
-    const subjectVal = formData.get("subject");
-    if (subjectVal) {
-      formData.append("Email Subject", subjectVal);
-    }
+    // Create a new FormData object to control the precise order in the email body table
+    const formData = new FormData();
+    formData.append("access_key", accessKey);
+    formData.append("Name", originalData.get("name") || "");
+    formData.append("Email", originalData.get("email") || "");
+    formData.append("subject", originalData.get("subject") || ""); // Used by Web3Forms for the email subject header
+    formData.append("Email Subject", originalData.get("subject") || ""); // Custom body table row before Message
+    formData.append("Message", originalData.get("message") || "");
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
