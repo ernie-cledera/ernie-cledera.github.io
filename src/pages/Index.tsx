@@ -10,15 +10,13 @@ import { useDarkVeil } from '@/components/layout/DarkVeilProvider';
 import { useTheme } from 'next-themes';
 import SEO from '@/components/layout/SEO';
 
-type CustomCSSProperties = React.CSSProperties & Record<`--${string}`, string | number>;
-
 export default function Index() {
   const { isDarkVeilActive } = useDarkVeil();
   const { theme } = useTheme();
 
   const isDarkBackground = isDarkVeilActive || theme === 'dark';
 
-  const shinyTextStyle: CustomCSSProperties = isDarkBackground
+  const shinyTextStyle: React.CSSProperties = isDarkBackground
     ? {
         '--muted-foreground': '240 4% 85%',
         '--primary-foreground': '45 100% 50%',
