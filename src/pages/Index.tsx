@@ -16,7 +16,7 @@ export default function Index() {
 
   const isDarkBackground = isDarkVeilActive || theme === 'dark';
 
-  const shinyTextStyle: React.CSSProperties = isDarkBackground
+  const shinyTextStyle: React.CSSProperties & Record<string, string | number> = isDarkBackground
     ? {
         '--muted-foreground': '240 4% 85%',
         '--primary-foreground': '45 100% 50%',
