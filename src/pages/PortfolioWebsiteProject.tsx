@@ -70,7 +70,6 @@ const PortfolioWebsiteProject: React.FC = () => {
                     </a>
                   </Button>
                 )}
-                {/* Since this is the current site, the live link is just the root */}
                 <Button asChild>
                   <Link to="/">
                     <LinkIcon className="h-4 w-4 mr-2" /> View Live Site

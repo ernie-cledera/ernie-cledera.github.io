@@ -1,11 +1,9 @@
-"use client";
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { useDarkVeil } from "@/components/layout/DarkVeilProvider";
+import { profileData } from "@/data/portfolioData";
 
-import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { useDarkVeil } from '@/components/layout/DarkVeilProvider';
-import { profileData } from '@/data/portfolioData';
-
-const IntroCard = () => {
+const IntroCard: React.FC = () => {
   const { isDarkVeilActive } = useDarkVeil();
 
   return (

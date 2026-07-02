@@ -61,8 +61,6 @@ const SimpleCalculatorProject: React.FC = () => {
                   </Badge>
                 ))}
               </div>
-              
-              {/* Removed Links section as the demo is embedded */}
             </CardContent>
           </div>
 

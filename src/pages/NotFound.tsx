@@ -21,7 +21,6 @@ const NotFound = () => {
   const { isDarkVeilActive } = useDarkVeil();
   const { theme } = useTheme();
 
-  // Determine if the background is dark (either DarkVeil or standard dark theme)
   const isBackgroundDark = isDarkVeilActive || theme === 'dark';
 
   return (

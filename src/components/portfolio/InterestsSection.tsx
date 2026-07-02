@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { interestsData } from "@/data/portfolioData";
 import { useDarkVeil } from "@/components/layout/DarkVeilProvider";
 
-const InterestsCard: React.FC = () => {
+const InterestsSection: React.FC = () => {
   const { isDarkVeilActive } = useDarkVeil();
 
   return (
@@ -27,4 +27,4 @@ const InterestsCard: React.FC = () => {
   );
 };
 
-export default InterestsCard;
+export default InterestsSection;
