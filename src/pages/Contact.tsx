@@ -31,7 +31,7 @@ const Contact = () => {
     formData.append("Name", originalData.get("name") || "");
     formData.append("Email", originalData.get("email") || "");
     formData.append("subject", originalData.get("subject") || ""); // Used by Web3Forms for the email subject header
-    formData.append("Email Subject", originalData.get("subject") || ""); // Custom body table row before Message
+    formData.append("Subject", originalData.get("subject") || ""); // Custom body table row before Message
     formData.append("Message", originalData.get("message") || "");
 
     try {
