@@ -10,6 +10,7 @@ import MagnetEffect from "@/components/animations/MagnetEffect";
 import { useDarkVeil } from "@/components/layout/DarkVeilProvider";
 import LogoIcon from "@/components/layout/LogoIcon";
 import SEO from "@/components/layout/SEO";
+import { profileData } from "@/data/portfolioData";
 
 const Contact = () => {
   const { isDarkVeilActive } = useDarkVeil();
@@ -108,7 +109,7 @@ const Contact = () => {
             <CardContent className="space-y-4">
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-muted-foreground" />
-                <a href="mailto:cledera.ernie@gmail.com" className="text-muted-foreground hover:text-primary">cledera.ernie@gmail.com</a>
+                <a href={`mailto:${profileData.email}`} className="text-muted-foreground hover:text-primary">{profileData.email}</a>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-muted-foreground" />
