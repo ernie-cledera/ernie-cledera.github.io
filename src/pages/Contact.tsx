@@ -1,61 +1,115 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Mail, Phone, MapPin, Github, Link as LinkIcon, Download } from "lucide-react";
-import { showError } from "@/utils/toast";
-import MagnetEffect from "@/components/animations/MagnetEffect"; // Keep import for other uses if any
+import { Mail, Phone, MapPin, Github, Link as LinkIcon, Download, Loader2 } from "lucide-react";
+import { showSuccess, showError } from "@/utils/toast";
+import MagnetEffect from "@/components/animations/MagnetEffect";
 import { useDarkVeil } from "@/components/layout/DarkVeilProvider";
 import LogoIcon from "@/components/layout/LogoIcon";
+import SEO from "@/components/layout/SEO";
+import { profileData } from "@/data/portfolioData";
 
 const Contact = () => {
   const { isDarkVeilActive } = useDarkVeil();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    showError("Kindly send me an email for now as the API for this is not working properly. I apologize for the inconvenience.");
+    setIsSubmitting(true);
+
+    const form = e.currentTarget;
+    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || "468c432c-4311-435e-bba2-2a734177d628";
+
+    const originalData = new FormData(form);
+    
+    // Create a new FormData object to control the precise order in the email body table
+    const formData = new FormData();
+    formData.append("access_key", accessKey);
+    formData.append("Name", originalData.get("name") || "");
+    formData.append("Email", originalData.get("email") || "");
+    formData.append("subject", originalData.get("subject") || ""); // Used by Web3Forms for the email subject header
+    formData.append("Subject", originalData.get("subject") || ""); // Custom body table row before Message
+    formData.append("Message", originalData.get("message") || "");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        showSuccess("Message sent successfully! I will get back to you soon.");
+        form.reset();
+      } else {
+        showError(data.message || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      showError("Failed to connect to the server. Please check your internet connection.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const cardClassNames = isDarkVeilActive ? 'border border-primary/20 backdrop-blur-md' : '';
 
   return (
     <div className={`container mx-auto py-12 px-4 ${isDarkVeilActive ? 'bg-transparent' : ''}`}>
+      <SEO 
+        title="Contact Ernie Joseph Cledera | Remote Support & Collaboration"
+        description="Get in touch with Ernie Joseph Cledera for IT administration, virtual assistance, web development opportunities, or download his official resume."
+        keywords="Contact Ernie Joseph Cledera, hire developer, hire Virtual Assistant, Philippines freelancer, download resume"
+      />
       <h1 className="text-4xl font-bold text-center mb-10">Get in Touch</h1>
       <div className="grid md:grid-cols-2 gap-10">
-        <Card className={cardClassNames}>
-          <CardHeader>
-            <CardTitle>Send Me a Message</CardTitle>
-            <CardDescription>I'd love to hear from you!</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <Label htmlFor="name">Name</Label>
-                <Input id="name" type="text" placeholder="Your Name" required />
-              </div>
-              <div>
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="your@email.com" required />
-              </div>
-              <div>
-                <Label htmlFor="subject">Subject</Label>
-                <Input id="subject" type="text" placeholder="Subject of your message" required />
-              </div>
-              <div>
-                <Label htmlFor="message">Message</Label>
-                <Textarea id="message" placeholder="Your message..." rows={5} required />
-              </div>
-              <Button type="submit" className="w-full">Send Message</Button>
-            </form>
-          </CardContent>
-        </Card>
+        <div className="space-y-6">
+          <Card className={cardClassNames}>
+            <CardHeader>
+              <CardTitle>Send Me a Message</CardTitle>
+              <CardDescription>Fill out this form to send an email straight to my inbox.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <Label htmlFor="name">Name</Label>
+                  <Input id="name" name="name" type="text" placeholder="Your Name" required />
+                </div>
+                <div>
+                  <Label htmlFor="email">Email</Label>
+                  <Input id="email" name="email" type="email" placeholder="your@email.com" required />
+                </div>
+                <div>
+                  <Label htmlFor="subject">Subject</Label>
+                  <Input id="subject" name="subject" type="text" placeholder="Subject of your message" required />
+                </div>
+                <div>
+                  <Label htmlFor="message">Message</Label>
+                  <Textarea id="message" name="message" placeholder="Your message..." rows={5} required />
+                </div>
+                <Button type="submit" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    "Send Message"
+                  )}
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
+        </div>
+
         <div className="space-y-8">
           <Card className={cardClassNames}>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle>Contact Information</CardTitle>
-              {/* Removed MagnetEffect wrapper */}
               <LogoIcon 
                 className="h-8 w-8 transition-all duration-300 hover:filter hover:drop-shadow-[0_0_8px_hsl(var(--primary))]" 
               />
@@ -63,7 +117,7 @@ const Contact = () => {
             <CardContent className="space-y-4">
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-muted-foreground" />
-                <a href="mailto:cledera.ernie@gmail.com" className="text-muted-foreground hover:text-primary">cledera.ernie@gmail.com</a>
+                <a href={`mailto:${profileData.email}`} className="text-muted-foreground hover:text-primary">{profileData.email}</a>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-muted-foreground" />
@@ -98,7 +152,7 @@ const Contact = () => {
             <CardContent className="space-y-4">
               <div className="flex items-center space-x-3">
                 <Github className="h-5 w-5 text-muted-foreground" />
-                <a href="https://github.com/jeffcleds" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">github.com/jeffcleds</a>
+                <a href="https://github.com/ernie-cledera" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">github.com/ernie-cledera</a>
               </div>
               <div className="flex items-center space-x-3">
                 <LinkIcon className="h-5 w-5 text-muted-foreground" />
