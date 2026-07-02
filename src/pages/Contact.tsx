@@ -25,6 +25,12 @@ const Contact = () => {
 
     const formData = new FormData(form);
     formData.append("access_key", accessKey);
+    
+    // Duplicate the subject value to a custom key so Web3Forms renders it in the email body table
+    const subjectVal = formData.get("subject");
+    if (subjectVal) {
+      formData.append("Email Subject", subjectVal);
+    }
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
