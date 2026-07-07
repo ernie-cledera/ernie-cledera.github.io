@@ -38,15 +38,15 @@ export default function Index() {
     "Web Developer",
     "Virtual Assistant",
     "Network Specialist",
-    "Software Developer",
-    "Automation Specialist"
+    "Dispatcher",
+    "Software Developer"
   ];
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[calc(100vh-14rem)] text-center px-4 py-12">
       <SEO 
         title="Ernie Joseph Cledera | IT Specialist, Web Developer & Virtual Assistant"
-        description="Welcome to my official portfolio website. I'm Ernie Joseph Cledera, a tech-savvy Virtual Assistant and IT Specialist with over 7+ years of experience optimizing workflows, web development, and remote operations."
+        description="Welcome to my official portfolio website. I'm Ernie Joseph Cledera, a tech-savvy Virtual Assistant and IT Specialist with over 5+ years of experience optimizing workflows, web development, and remote operations."
         keywords="Ernie Joseph Cledera, IT Specialist, Web Developer, Virtual Assistant, Remote Support, Portfolio, Tech Support"
       />
       <img
