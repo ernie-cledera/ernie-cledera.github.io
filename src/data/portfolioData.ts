@@ -77,7 +77,7 @@ export const experienceData: Experience[] = [
   },
   {
     id: "ateneo-intern-2026",
-    title: "Ateneo de Naga University",
+    title: "Ateneo de Naga University (NOCS Networks)",
     subtitle: "Information Technology Intern",
     date: "2026",
     responsibilities: [
@@ -121,7 +121,7 @@ export const experienceData: Experience[] = [
   },
   {
     id: "ateneo-intern",
-    title: "Ateneo de Naga University",
+    title: "Ateneo de Naga University (NOCS Desktop)",
     subtitle: "Engineering Intern",
     date: "2016",
     responsibilities: [
