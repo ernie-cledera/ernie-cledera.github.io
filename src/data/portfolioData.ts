@@ -318,6 +318,15 @@ export const projectsData: Project[] = [
     technologies: ["Unity", "C#", "Pixel Art", "Visual Studio Code"],
     liveLink: "/projects/jumpquest",
   },
+  {
+    id: 6,
+    title: "Gyozaraaap Naga RMS",
+    description: "A modern, real-time Restaurant Management & Point-of-Sale (POS) system designed to streamline operations, track financials, and automate inventory management.",
+    image: "/gyozaraaap-naga-rms.jpg",
+    technologies: ["Flutter", "Dart", "Riverpod", "Supabase", "PostgreSQL"],
+    githubLink: "https://github.com/ernie-cledera/gyozaraaap-naga-rms",
+    liveLink: "/projects/gyozaraaap-naga-rms",
+  },
 ];
 
 export const workstationData: WorkstationCategory[] = [
