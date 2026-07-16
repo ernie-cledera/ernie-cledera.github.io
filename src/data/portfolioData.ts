@@ -324,7 +324,6 @@ export const projectsData: Project[] = [
     description: "A modern, real-time Restaurant Management & Point-of-Sale (POS) system designed to streamline operations, track financials, and automate inventory management.",
     image: "/gyozaraaap-naga-rms.jpg",
     technologies: ["Flutter", "Dart", "Riverpod", "Supabase", "PostgreSQL"],
-    githubLink: "https://github.com/ernie-cledera/gyozaraaap-naga-rms",
     liveLink: "/projects/gyozaraaap-naga-rms",
   },
 ];

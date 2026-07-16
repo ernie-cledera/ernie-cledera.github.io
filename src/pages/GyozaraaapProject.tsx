@@ -4,7 +4,7 @@ import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Github, ArrowLeft } from "lucide-react";
+import { ArrowLeft, Link as LinkIcon } from "lucide-react";
 import { projectsData } from "@/data/portfolioData";
 import { useDarkVeil } from "@/components/layout/DarkVeilProvider";
 import SEO from "@/components/layout/SEO";
@@ -62,13 +62,11 @@ const GyozaraaapProject: React.FC = () => {
             
             <h3 className="text-2xl font-semibold pt-4">Links</h3>
             <div className="flex flex-col space-y-2">
-              {project.githubLink && (
-                <Button asChild variant="outline">
-                  <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
-                    <Github className="h-4 w-4 mr-2" /> View GitHub Repo
-                  </a>
-                </Button>
-              )}
+              <Button asChild>
+                <a href="https://gyozaraaap.cledera.dev" target="_blank" rel="noopener noreferrer">
+                  <LinkIcon className="h-4 w-4 mr-2" /> Visit Website
+                </a>
+              </Button>
             </div>
           </CardContent>
         </div>
