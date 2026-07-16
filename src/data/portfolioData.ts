@@ -322,7 +322,7 @@ export const projectsData: Project[] = [
     id: 6,
     title: "Gyozaraaap Naga RMS",
     description: "A modern, real-time Restaurant Management & Point-of-Sale (POS) system designed to streamline operations, track financials, and automate inventory management.",
-    image: "/gyozaraaap-naga-rms.jpg",
+    image: "/GyozaraaapRMS.jpg",
     technologies: ["Flutter", "Dart", "Riverpod", "Supabase", "PostgreSQL"],
     liveLink: "/projects/gyozaraaap-naga-rms",
   },
