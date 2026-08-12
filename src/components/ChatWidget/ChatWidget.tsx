@@ -79,7 +79,7 @@ export default function ChatWidget() {
               <p className="text-sm font-semibold">Ernie&apos;s AI Assistant</p>
               <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
                 <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                Powered by OpenAI
+                Powered by OpenRouter
               </p>
             </div>
           </div>

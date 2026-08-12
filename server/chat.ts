@@ -8,13 +8,18 @@ const OPENAI_CHAT_URL = "https://api.openai.com/v1/chat/completions";
 export async function handleChat(
   messages: ChatMessage[],
   apiKey: string,
-  model = "gpt-4o-mini"
+  model = "gpt-4o-mini",
+  apiUrl?: string
 ): Promise<string> {
-  if (!apiKey) {
-    throw new Error("OPENAI_API_KEY is not configured on the server.");
+  if (!apiKey || apiKey.trim().length === 0) {
+    throw new Error(
+      "No API key is configured on the server. Set OPENAI_API_KEY or OPENROUTER_API_KEY in Cloudflare Pages environment variables/secrets."
+    );
   }
 
-  const res = await fetch(OPENAI_CHAT_URL, {
+  const endpoint = apiUrl ?? OPENAI_CHAT_URL;
+
+  const res = await fetch(endpoint, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

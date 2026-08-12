@@ -14,6 +14,13 @@ export default function Reveal({ children, delay = 0, className = "", fade = fal
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    // If the element is already visible in the viewport, show it immediately.
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.85) {
+      setShown(true);
+      return;
+    }
+
     const obs = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {

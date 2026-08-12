@@ -13,6 +13,7 @@
 .page-loader--done {
   opacity: 0;
   pointer-events: none;
+  visibility: hidden;
 }
 
 .page-loader__logo-wrap {

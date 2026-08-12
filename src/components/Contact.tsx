@@ -185,6 +185,8 @@ export default function Contact() {
               <a
                 href="/Cledera - Resume.pdf"
                 download="Cledera - Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-4 flex h-10 w-full items-center justify-center gap-2 rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
               >
                 <Download className="h-4 w-4" /> Download Resume

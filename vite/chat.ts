@@ -40,11 +40,20 @@ export function chatMiddleware(): Connect.NextHandleFunction {
     }
 
     try {
-      const reply = await handleChat(
-        messages,
-        process.env.OPENAI_API_KEY ?? "",
-        process.env.OPENAI_MODEL
-      );
+      const apiKey =
+        [process.env.OPENAI_API_KEY, process.env.OPENROUTER_API_KEY].find(
+          (value): value is string => !!value && value.trim().length > 0
+        ) ?? "";
+      const model =
+        [process.env.OPENAI_MODEL, process.env.OPENROUTER_MODEL].find(
+          (value): value is string => !!value && value.trim().length > 0
+        ) ?? undefined;
+      const apiUrl =
+        process.env.OPENROUTER_API_KEY && process.env.OPENROUTER_API_KEY.trim().length > 0
+          ? "https://api.openrouter.ai/v1/chat/completions"
+          : undefined;
+
+      const reply = await handleChat(messages, apiKey, model, apiUrl);
       res.writeHead(200, { "Content-Type": "application/json" });
       res.end(JSON.stringify({ reply }));
     } catch (e) {
