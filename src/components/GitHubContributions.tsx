@@ -14,8 +14,6 @@ export default function GitHubContributions() {
   const [loaded, setLoaded] = useState(false);
   const [failed, setFailed] = useState(false);
 
-  const color = theme === "dark" ? "D4AF37" : "0F172A";
-
   return (
     <Reveal>
       <div className="overflow-hidden rounded-2xl border border-border/80 bg-card/85 p-6 shadow-sm md:p-8">
