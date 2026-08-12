@@ -2,5 +2,11 @@ name = "portfolio"
 compatibility_date = "2025-01-01"
 pages_build_output_dir = "dist"
 
-# Ignored by Vite; used only for `npx wrangler pages dev`.
+# Non-secret values for Pages runtime.
 [vars]
+OPENROUTER_MODEL = "openai/gpt-4o-mini"
+
+# KV binding used by the visitor counter.
+[[kv_namespaces]]
+binding = "VISITS_KV"
+id = "d9aed8f14bb848faaee2d28d3af3fc5b"
