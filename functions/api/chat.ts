@@ -34,9 +34,9 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 
   try {
     const apiKey = env.OPENAI_API_KEY ?? env.OPENROUTER_API_KEY ?? "";
-    const model = env.OPENAI_MODEL ?? env.OPENROUTER_MODEL;
+    const model = env.OPENAI_MODEL ?? env.OPENROUTER_MODEL ?? (env.OPENROUTER_API_KEY ? "openai/gpt-4o-mini" : undefined);
     const apiUrl = env.OPENROUTER_API_KEY
-      ? "https://api.openrouter.ai/v1/chat/completions"
+      ? "https://openrouter.ai/api/v1/chat/completions"
       : undefined;
 
     const reply = await handleChat(messages, apiKey, model, apiUrl);

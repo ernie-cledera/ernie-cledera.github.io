@@ -74,7 +74,7 @@ function Layout({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen bg-background font-sans text-foreground">
       <ScrollManager />
       {theme === "dark" && (
-        <div className="hidden md:block pointer-events-none fixed inset-0 z-0" aria-hidden="true">
+        <div className="pointer-events-none fixed inset-0 z-0" aria-hidden="true">
           <LiquidChrome
             baseColor={[0.16, 0.16, 0.16]}
             speed={0.05}

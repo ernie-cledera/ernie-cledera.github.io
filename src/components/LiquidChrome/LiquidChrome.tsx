@@ -111,7 +111,12 @@ const LiquidChrome = ({
       resUniform[1] = gl.canvas.height;
       resUniform[2] = gl.canvas.width / gl.canvas.height;
     }
-    window.addEventListener('resize', resize);
+    let resizeTimeout: ReturnType<typeof setTimeout>;
+    function handleResize() {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(resize, 200);
+    }
+    window.addEventListener('resize', handleResize);
     resize();
 
     function handleMouseMove(event: MouseEvent) {
@@ -152,7 +157,8 @@ const LiquidChrome = ({
 
     return () => {
       cancelAnimationFrame(animationId);
-      window.removeEventListener('resize', resize);
+      window.removeEventListener('resize', handleResize);
+      clearTimeout(resizeTimeout);
       if (interactive) {
         container.removeEventListener('mousemove', handleMouseMove);
         container.removeEventListener('touchmove', handleTouchMove);

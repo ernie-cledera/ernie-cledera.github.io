@@ -47,7 +47,7 @@ export default function QuickScroll() {
   return (
     <nav
       aria-label="Section quick navigation"
-      className="fixed right-6 top-1/2 z-40 hidden -translate-y-1/2 lg:block"
+      className="fixed right-6 top-1/2 z-[60] hidden -translate-y-1/2 lg:block"
     >
       <ul className="flex flex-col gap-3">
         {sections.map((s) => {

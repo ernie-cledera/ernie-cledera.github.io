@@ -42,9 +42,9 @@ const ClickSpark = ({
 
     if (overlay) {
       const resizeCanvas = () => {
-        if (canvas.width !== window.innerWidth || canvas.height !== window.innerHeight) {
-          canvas.width = window.innerWidth;
-          canvas.height = window.innerHeight;
+        if (canvas.width !== canvas.clientWidth || canvas.height !== canvas.clientHeight) {
+          canvas.width = canvas.clientWidth;
+          canvas.height = canvas.clientHeight;
         }
       };
       resizeCanvas();
