@@ -1,8 +1,8 @@
 import { handleChat, type ChatMessage } from "../../server/chat.ts";
 
 interface Env {
-  OPENAI_API_KEY?: string;
-  OPENAI_MODEL?: string;
+  OPENROUTER_API_KEY?: string;
+  OPENROUTER_MODEL?: string;
 }
 
 export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
