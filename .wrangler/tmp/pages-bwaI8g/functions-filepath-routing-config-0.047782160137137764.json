@@ -1,0 +1,37 @@
+{
+  "routes": [
+    {
+      "routePath": "/api/chat",
+      "mountPath": "/api",
+      "method": "POST",
+      "module": [
+        "api/chat.ts:onRequestPost"
+      ]
+    },
+    {
+      "routePath": "/api/visits",
+      "mountPath": "/api",
+      "method": "GET",
+      "module": [
+        "api/visits.ts:onRequestGet"
+      ]
+    },
+    {
+      "routePath": "/api/visits",
+      "mountPath": "/api",
+      "method": "OPTIONS",
+      "module": [
+        "api/visits.ts:onRequestOptions"
+      ]
+    },
+    {
+      "routePath": "/api/visits",
+      "mountPath": "/api",
+      "method": "POST",
+      "module": [
+        "api/visits.ts:onRequestPost"
+      ]
+    }
+  ],
+  "baseURL": "/"
+}
