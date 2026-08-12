@@ -40,13 +40,29 @@ export function chatMiddleware(): Connect.NextHandleFunction {
     }
 
     try {
-      const openRouterKey = process.env.OPENROUTER_API_KEY?.trim();
-      const openAIKey = process.env.OPENAI_API_KEY?.trim();
+      const openRouterKey = [
+        process.env.OPENROUTER_API_KEY,
+        process.env.openrouter_api_key,
+      ].find((value): value is string => !!value && value.trim().length > 0)?.trim();
+      const openAIKey = [
+        process.env.OPENAI_API_KEY,
+        process.env.openai_api_key,
+      ].find((value): value is string => !!value && value.trim().length > 0)?.trim();
       const apiKey = openRouterKey || openAIKey || "";
       const model =
         openRouterKey
-          ? process.env.OPENROUTER_MODEL?.trim() || process.env.OPENAI_MODEL?.trim()
-          : process.env.OPENAI_MODEL?.trim() || process.env.OPENROUTER_MODEL?.trim();
+          ? [
+              process.env.OPENROUTER_MODEL,
+              process.env.openrouter_model,
+              process.env.OPENAI_MODEL,
+              process.env.openai_model,
+            ].find((value): value is string => !!value && value.trim().length > 0)?.trim()
+          : [
+              process.env.OPENAI_MODEL,
+              process.env.openai_model,
+              process.env.OPENROUTER_MODEL,
+              process.env.openrouter_model,
+            ].find((value): value is string => !!value && value.trim().length > 0)?.trim();
       const apiUrl = openRouterKey
         ? "https://api.openrouter.ai/v1/chat/completions"
         : undefined;
