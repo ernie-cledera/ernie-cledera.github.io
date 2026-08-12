@@ -2,3 +2,5 @@ name = "portfolio"
 compatibility_date = "2025-01-01"
 pages_build_output_dir = "dist"
 
+# Ignored by Vite; used only for `npx wrangler pages dev`.
+[vars]
