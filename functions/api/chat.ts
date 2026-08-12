@@ -33,18 +33,16 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   }
 
   try {
-    const apiKey =
-      [env.OPENAI_API_KEY, env.OPENROUTER_API_KEY].find(
-        (value): value is string => !!value && value.trim().length > 0
-      ) ?? "";
+    const openRouterKey = env.OPENROUTER_API_KEY?.trim();
+    const openAIKey = env.OPENAI_API_KEY?.trim();
+    const apiKey = openRouterKey || openAIKey || "";
     const model =
-      [env.OPENAI_MODEL, env.OPENROUTER_MODEL].find(
-        (value): value is string => !!value && value.trim().length > 0
-      ) ?? undefined;
-    const apiUrl =
-      env.OPENROUTER_API_KEY && env.OPENROUTER_API_KEY.trim().length > 0
-        ? "https://api.openrouter.ai/v1/chat/completions"
-        : undefined;
+      openRouterKey
+        ? env.OPENROUTER_MODEL?.trim() || env.OPENAI_MODEL?.trim()
+        : env.OPENAI_MODEL?.trim() || env.OPENROUTER_MODEL?.trim();
+    const apiUrl = openRouterKey
+      ? "https://api.openrouter.ai/v1/chat/completions"
+      : undefined;
 
     const reply = await handleChat(messages, apiKey, model, apiUrl);
     return Response.json({ reply }, { status: 200, headers: cors });
