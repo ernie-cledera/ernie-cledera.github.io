@@ -74,7 +74,7 @@ function Layout({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen bg-background font-sans text-foreground">
       <ScrollManager />
       {theme === "dark" && (
-        <div className="pointer-events-none fixed inset-0 z-0" aria-hidden="true">
+        <div className="pointer-events-none fixed inset-0 z-0 min-h-screen" aria-hidden="true">
           <LiquidChrome
             baseColor={[0.16, 0.16, 0.16]}
             speed={0.05}
@@ -86,16 +86,14 @@ function Layout({ children }: { children: React.ReactNode }) {
           <div className="absolute inset-0 bg-black/50" />
         </div>
       )}
-      {theme === "dark" && (
-        <ClickSpark
-          overlay
-          sparkColor={theme === "dark" ? "#D4AF37" : "#0F172A"}
-          sparkSize={10}
-          sparkRadius={30}
-          sparkCount={8}
-          duration={450}
-        />
-      )}
+      <ClickSpark
+        overlay
+        sparkColor={theme === "dark" ? "#D4AF37" : "#0F172A"}
+        sparkSize={10}
+        sparkRadius={30}
+        sparkCount={8}
+        duration={450}
+      />
       <CardNav
         className="card-nav-fixed"
         logo={<BrandLogo className="h-7 w-7" />}

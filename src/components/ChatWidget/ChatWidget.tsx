@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { Bot, Send, Sparkles, X } from "lucide-react";
+import { Send, X } from "lucide-react";
 import type { ChatMessage } from "./chatTypes";
 import "./ChatWidget.css";
 
 const WELCOME_MESSAGE: ChatMessage = {
   role: "assistant",
   content:
-    "Hey I'm Monkey! I'm Ernie's AI assistant. Ask me about his availability,experience, projects, skills, education, computer specifications, or how to get in touch with him.",
+    "Hey I'm Monkey! I'm Ernie's AI assistant. Ask me about his availability, experience, projects, skills, education, computer specifications, or how to get in touch with him.",
 };
 
 function MonkeyIcon(props: React.SVGProps<SVGSVGElement>) {
@@ -94,14 +94,14 @@ export default function ChatWidget() {
       {open && (
         <div className="fixed bottom-24 right-5 z-[120] flex h-[min(560px,calc(100dvh-7rem))] w-[min(380px,calc(100vw-2.5rem))] flex-col overflow-hidden rounded-2xl border border-border/80 bg-card/95 shadow-2xl backdrop-blur">
           <div className="flex items-center gap-3 border-b border-border/50 px-4 py-3">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-highlight">
-              <Sparkles className="h-4 w-4" />
+            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10">
+              <MonkeyIcon className="h-5 w-5" style={{ stroke: "#D4AF37" }} />
             </span>
             <div className="flex-1">
               <p className="text-sm font-semibold">Ernie&apos;s AI Assistant</p>
               <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
                 <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                Powered by OpenRouter
+                Online
               </p>
             </div>
           </div>

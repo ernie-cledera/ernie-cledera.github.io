@@ -60,11 +60,7 @@ export default function QuickScroll() {
                 aria-current={isActive ? "true" : undefined}
                 className="group flex items-center gap-3"
               >
-                <span
-                  className={`rounded-md border border-border/40 bg-card/85 px-2 py-0.5 text-[11px] font-medium text-muted-foreground shadow-sm opacity-0 transition-all duration-200 group-hover:opacity-100 ${
-                    isActive ? "opacity-100" : ""
-                  }`}
-                >
+                <span className="rounded-md border border-border/40 bg-card/85 px-2 py-0.5 text-[11px] font-medium text-muted-foreground shadow-sm opacity-0 transition-all duration-200 group-hover:opacity-100">
                   {s.label}
                 </span>
                 <span

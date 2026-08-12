@@ -159,9 +159,6 @@ export default function Certifications() {
                   }}
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
                 />
-                <span className="absolute left-3 top-3 rounded-full bg-background/90 px-2 py-0.5 text-[10px] font-mono uppercase tracking-widest text-secondary-foreground">
-                  {c.date}
-                </span>
               </button>
               <div className="flex flex-1 flex-col p-5">
                 <button

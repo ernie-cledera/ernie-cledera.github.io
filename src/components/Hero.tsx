@@ -54,13 +54,13 @@ export default function Hero() {
                 aria-hidden="true"
               />
               <img
-                src={profileData.profileImage}
+                src={theme === "dark" ? "/ernie-joseph-cledera-dark.jpg" : profileData.profileImage}
                 alt={profileData.name}
-                className="relative h-48 w-48 rounded-full border-2 border-highlight/40 object-cover shadow-xl ring-4 ring-background/60 transition-all duration-300 hover:scale-[1.02] md:h-64 md:w-64"
+                className="relative h-64 w-64 rounded-full border-2 border-highlight/40 object-cover shadow-xl ring-4 ring-background/60 transition-all duration-300 hover:scale-[1.02] md:h-96 md:w-96"
               />
             </div>
 
-            <h1 id="hero-name" className="mt-8 max-w-4xl text-5xl font-bold leading-[1.05] tracking-tight text-shadow-soft sm:text-6xl md:mt-10 md:text-7xl lg:text-8xl">
+            <h1 id="hero-name" className="mt-8 w-full text-4xl font-bold leading-[1.05] tracking-tight text-shadow-soft sm:text-5xl md:mt-10 md:text-5xl lg:text-6xl whitespace-nowrap">
               <ShinyText
                 text={profileData.name}
                 speed={6}

@@ -12,7 +12,7 @@ export default function Workstation() {
       <Reveal fade>
         <Link
           to="/"
-          className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+          className="inline-flex items-center gap-2 rounded-md border border-border/80 bg-card/85 px-4 py-2 text-sm font-medium text-foreground shadow-sm transition-colors hover:bg-muted hover:border-highlight"
         >
           <ArrowLeft className="h-4 w-4" /> Back to Home
         </Link>
