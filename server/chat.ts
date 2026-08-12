@@ -11,10 +11,8 @@ export async function handleChat(
   model = "gpt-4o-mini",
   apiUrl?: string
 ): Promise<string> {
-  if (!apiKey || apiKey.trim().length === 0) {
-    throw new Error(
-      "No API key is configured on the server. Set OPENAI_API_KEY or OPENROUTER_API_KEY in Cloudflare Pages environment variables/secrets."
-    );
+  if (!apiKey) {
+    throw new Error("API key is not configured on the server.");
   }
 
   const endpoint = apiUrl ?? OPENAI_CHAT_URL;

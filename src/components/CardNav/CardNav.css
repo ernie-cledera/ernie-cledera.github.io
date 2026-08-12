@@ -29,6 +29,10 @@
   backdrop-filter: blur(12px);
 }
 
+.card-nav.open {
+  overflow: visible;
+}
+
 .card-nav-top {
   position: absolute;
   top: 0;
@@ -198,12 +202,16 @@
 
 @media (max-width: 768px) {
   .card-nav-container {
-    width: 90%;
-    top: 1.2em;
+    width: min(92vw, 420px);
+    top: 1rem;
   }
 
   .card-nav-container.card-nav-fixed {
     top: 0.75rem;
+  }
+
+  .card-nav {
+    overflow: visible;
   }
 
   .card-nav-top {
@@ -236,6 +244,8 @@
     padding: 0.5rem;
     bottom: 0;
     justify-content: flex-start;
+    overflow-y: auto;
+    max-height: calc(100vh - 120px);
   }
 
   .nav-card {

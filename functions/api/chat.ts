@@ -5,14 +5,6 @@ interface Env {
   OPENAI_MODEL?: string;
   OPENROUTER_API_KEY?: string;
   OPENROUTER_MODEL?: string;
-  openai_api_key?: string;
-  openai_model?: string;
-  openrouter_api_key?: string;
-  openrouter_model?: string;
-}
-
-function pickNonEmpty(...values: Array<string | undefined>) {
-  return values.find((value) => !!value && value.trim().length > 0);
 }
 
 export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
@@ -41,22 +33,9 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   }
 
   try {
-    const openRouterKey = pickNonEmpty(
-      env.OPENROUTER_API_KEY,
-      env.openrouter_api_key
-    )?.trim();
-    const openAIKey = pickNonEmpty(env.OPENAI_API_KEY, env.openai_api_key)?.trim();
-    const apiKey = openRouterKey || openAIKey || "";
-    const model =
-      openRouterKey
-        ? pickNonEmpty(
-            env.OPENROUTER_MODEL,
-            env.openrouter_model,
-            env.OPENAI_MODEL,
-            env.openai_model
-          )?.trim()
-        : pickNonEmpty(env.OPENAI_MODEL, env.openai_model, env.OPENROUTER_MODEL, env.openrouter_model)?.trim();
-    const apiUrl = openRouterKey
+    const apiKey = env.OPENAI_API_KEY ?? env.OPENROUTER_API_KEY ?? "";
+    const model = env.OPENAI_MODEL ?? env.OPENROUTER_MODEL;
+    const apiUrl = env.OPENROUTER_API_KEY
       ? "https://api.openrouter.ai/v1/chat/completions"
       : undefined;
 

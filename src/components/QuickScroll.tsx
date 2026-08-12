@@ -15,9 +15,9 @@ export default function QuickScroll() {
   const [active, setActive] = useState("about");
   const { pathname } = useLocation();
 
-  if (pathname !== "/") return null;
-
   useEffect(() => {
+    if (pathname !== "/") return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
@@ -36,7 +36,9 @@ export default function QuickScroll() {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [pathname]);
+
+  if (pathname !== "/") return null;
 
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
