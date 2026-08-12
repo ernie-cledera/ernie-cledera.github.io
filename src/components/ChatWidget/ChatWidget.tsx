@@ -6,8 +6,30 @@ import "./ChatWidget.css";
 const WELCOME_MESSAGE: ChatMessage = {
   role: "assistant",
   content:
-    "Hey! I'm Ernie's AI assistant. Ask me about his experience, projects, skills, education, or how to get in touch with him.",
+    "Hey I'm Monkey! I'm Ernie's AI assistant. Ask me about his availability,experience, projects, skills, education, computer specifications, or how to get in touch with him.",
 };
+
+function MonkeyIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <circle cx="5.5" cy="12" r="2" />
+      <circle cx="18.5" cy="12" r="2" />
+      <circle cx="12" cy="12" r="6.5" />
+      <path d="M9.8 10.5h.4m3.6 0h.4m-4.7 4c.7 1 1.5 1.5 2.5 1.5s1.8-.5 2.5-1.5" />
+    </svg>
+  );
+}
 
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
@@ -66,7 +88,7 @@ export default function ChatWidget() {
         aria-label={open ? "Close chat" : "Open chat"}
         className="fixed bottom-5 right-5 z-[120] flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition-transform duration-200 hover:scale-105 active:scale-95"
       >
-        {open ? <X className="h-6 w-6" /> : <Bot className="h-6 w-6" />}
+        {open ? <X className="h-6 w-6" /> : <MonkeyIcon className="h-7 w-7" />}
       </button>
 
       {open && (
