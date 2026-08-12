@@ -33,8 +33,8 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   try {
     const reply = await handleChat(
       messages,
-      env.OPENAI_API_KEY ?? "",
-      env.OPENAI_MODEL
+      env.OPENROUTER_API_KEY ?? "",
+      env.OPENROUTER_MODEL
     );
     return Response.json({ reply }, { status: 200, headers: cors });
   } catch (e) {
