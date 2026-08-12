@@ -6,9 +6,9 @@ import { experienceData } from "@/data/portfolio";
 
 function JobItem({ job, isCurrent }: { job: (typeof experienceData)[number]; isCurrent?: boolean }) {
   const logoEl = (
-    <span className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full border border-border bg-white shadow-sm">
+    <span className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full">
       {job.logo ? (
-        <img src={job.logo} alt={job.title} className="h-full w-full object-contain p-0.5" />
+        <img src={job.logo} alt={job.title} className="h-full w-full object-contain" />
       ) : (
         <Briefcase className="h-4 w-4 text-muted-foreground" />
       )}

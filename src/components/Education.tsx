@@ -30,7 +30,7 @@ export default function Education() {
           <Reveal key={ed.id} delay={i * 80}>
             <div className="group flex h-full flex-col rounded-2xl border border-border/80 bg-card/85 p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:border-highlight">
               <div className="flex items-start justify-center gap-3 md:justify-between">
-                <span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl bg-white p-1 ring-1 ring-border">
+                <span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl">
                   {ed.logo ? (
                     <img src={ed.logo} alt={ed.title} className="h-full w-full object-contain" />
                   ) : (

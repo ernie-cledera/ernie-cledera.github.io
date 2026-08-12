@@ -15,7 +15,7 @@ export default function Affiliations() {
         {affiliationsData.map((a, i) => (
           <Reveal key={a.id} delay={(i % 2) * 80}>
             <div className="group flex h-full flex-col items-center gap-4 rounded-2xl border border-border/80 bg-card/85 p-6 text-center shadow-sm transition-all duration-300 hover:shadow-md hover:border-highlight md:flex-row md:items-start md:text-left">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white p-1 ring-1 ring-border">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-xl">
                 {a.logo ? (
                   <img src={a.logo} alt={a.name} className="h-full w-full object-contain" />
                 ) : (

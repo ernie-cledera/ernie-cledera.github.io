@@ -112,7 +112,13 @@ const LiquidChrome = ({
       resUniform[2] = gl.canvas.width / gl.canvas.height;
     }
     let resizeTimeout: ReturnType<typeof setTimeout>;
+    let lastWidth = window.innerWidth;
+    
     function handleResize() {
+      // Ignore vertical-only resizes (e.g. mobile address bar hiding on scroll)
+      if (window.innerWidth === lastWidth) return;
+      lastWidth = window.innerWidth;
+
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(resize, 200);
     }

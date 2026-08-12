@@ -12,7 +12,8 @@ import {
   experienceData,
   projectsData,
   technicalSkillsData,
-  softSkillsData
+  softSkillsData,
+  workstationData
 } from "../../src/data/portfolio.ts";
 
 const SYSTEM_PROMPT = `You are Ernie's personal AI assistant on his portfolio website.
@@ -36,6 +37,11 @@ ${experienceData.map(e => `- ${e.title} (${e.date}): ${e.subtitle}`).join("\n")}
 
 Projects:
 ${projectsData.map(p => `- ${p.title}: ${p.description} (${p.technologies.join(", ")})`).join("\n")}
+
+Workstation Specifications:
+${workstationData.map(cat => `${cat.title}:\n${cat.items.map(item => `  - ${item.name}: ${item.value}`).join("\n")}`).join("\n")}
+
+Ernie is currently always available for work. Please let users know if they ask about his availability.
 
 Only answer questions based on the provided information. If asked something not in this prompt, politely say you don't know but they can contact Ernie directly at ${profileData.email}.`;
 
