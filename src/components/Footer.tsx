@@ -62,6 +62,13 @@ export default function Footer() {
     <footer id="footer" className="relative z-10 border-t border-border/40 pt-16 pb-6 md:pt-20 md:pb-10">
       <div className="mx-auto w-full max-w-4xl px-4 md:px-6">
         <div className="flex flex-col items-center gap-5">
+          <div className="mb-6 max-w-2xl text-center">
+            <h3 className="font-mono text-sm uppercase tracking-widest text-highlight md:text-base text-shadow-soft">My Philosophy</h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground italic text-shadow-soft">
+              Don&apos;t chase busywork. Build assets — skills, tools, networks, and habits that multiply output without multiplying effort. Anything that doesn&apos;t scale or compound is either a stepping stone or dead weight. Learn to tell the difference fast.
+            </p>
+          </div>
+
           <BrandLogo className="h-16 w-16" />
 
           <div className="flex items-center gap-2">
