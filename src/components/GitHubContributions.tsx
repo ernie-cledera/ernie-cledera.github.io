@@ -7,7 +7,7 @@ import { profileData } from "@/data/portfolio";
 const username = profileData.social.github.split("/").filter(Boolean).pop() ?? "";
 
 const CHART_URL = (theme: string) =>
-  `https://ghchart.rshah.org/${theme === "dark" ? "D4AF37" : "0F172A"}/${username}`;
+  `https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&hide_border=true&bg_color=00000000&title_color=${theme === "dark" ? "D4AF37" : "0F172A"}&text_color=${theme === "dark" ? "a0a0a0" : "444444"}&icon_color=${theme === "dark" ? "D4AF37" : "0F172A"}&include_all_commits=true&count_private=true&hide=contribs`;
 
 export default function GitHubContributions() {
   const { theme } = useTheme();

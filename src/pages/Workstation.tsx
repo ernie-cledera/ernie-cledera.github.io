@@ -17,16 +17,16 @@ export default function Workstation() {
           <ArrowLeft className="h-4 w-4" /> Back to Home
         </Link>
 
-        <div className="mt-8 flex items-center justify-center gap-3 md:justify-start">
+        <div className="mt-8 flex items-center gap-3">
           <span className="h-px w-8 bg-highlight/50" />
           <span className="font-mono text-xs font-medium uppercase tracking-widest text-highlight md:text-sm">
             Setup
           </span>
         </div>
-        <h1 className="mt-5 text-center text-3xl font-bold tracking-tight md:text-left md:text-4xl">
+        <h1 className="mt-5 text-3xl font-bold tracking-tight md:text-4xl">
           My <span className="text-highlight">Workstation</span>
         </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-center text-sm leading-relaxed text-muted-foreground text-shadow-soft md:mx-0 md:text-left md:text-base">
+        <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground text-shadow-soft md:text-base">
           The battle station I use every day — for development, automation, gaming, and everything in between.
         </p>
       </Reveal>

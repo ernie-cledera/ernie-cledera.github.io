@@ -104,20 +104,60 @@ const certificationsData = [
     credentialId: "SAP-4HANA",
     image: "/certificates/SAP 4HANA.png",
   },
+  {
+    id: "network-defense",
+    name: "Network Defense",
+    issuer: "Cisco",
+    category: "Security",
+    date: "2026",
+    credentialId: "Network-Defense",
+    image: "/certificates/Network Defense.png",
+  },
+  {
+    id: "network-support-security",
+    name: "Network Support and Security",
+    issuer: "Cisco",
+    category: "Networking",
+    date: "2026",
+    credentialId: "Network-Support-Security",
+    image: "/certificates/Network Support and Security.png",
+  },
+  {
+    id: "network-technician-career",
+    name: "Network Technician Career Path",
+    issuer: "Cisco",
+    category: "Networking",
+    date: "2026",
+    credentialId: "Network-Technician-Career",
+    image: "/certificates/Network Technician Career Path.png",
+  },
+  {
+    id: "network-addressing",
+    name: "Network Addressing and Basic Troubleshooting",
+    issuer: "Cisco",
+    category: "Networking",
+    date: "2026",
+    credentialId: "Network-Addressing",
+    image: "/certificates/Network Addressing and Basic Troubleshooting.png",
+  },
 ];
 
 const filters = ["All", "Networking", "Security", "AI & Data"];
+
+const sortedCertificationsData = [...certificationsData].sort((a, b) =>
+  a.name.localeCompare(b.name)
+);
 
 export default function Certifications() {
   const [active, setActive] = useState("All");
   const [showAll, setShowAll] = useState(false);
   const [selected, setSelected] = useState<{ image: string; name: string } | null>(null);
 
-  const filtered = active === "All" ? certificationsData : certificationsData.filter((c) => c.category === active);
+  const filtered = active === "All" ? sortedCertificationsData : sortedCertificationsData.filter((c) => c.category === active);
   const visible = showAll ? filtered : filtered.slice(0, 3);
 
   return (
-    <Section id="certifications" index="04" eyebrow="Certifications" title="Certifications.">
+    <Section id="certifications" index="04" eyebrow="Credentials" title="Credentials.">
       <Reveal>
         <div className="mx-auto flex w-fit max-w-full flex-wrap items-center justify-center gap-1 rounded-lg border border-border/50 bg-muted/50 p-1 shadow-sm">
           {filters.map((f) => (

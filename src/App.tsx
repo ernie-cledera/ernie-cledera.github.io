@@ -53,7 +53,7 @@ const navItems: CardNavItem[] = [
     links: [
       { label: "Experience", href: "/#experience", ariaLabel: "Work Experience" },
       { label: "Projects", href: "/#projects", ariaLabel: "Projects" },
-      { label: "Certifications", href: "/#certifications", ariaLabel: "Certifications" },
+      { label: "Credentials", href: "/#certifications", ariaLabel: "Credentials" },
     ],
   },
   {
