@@ -185,6 +185,42 @@ const certificationsData = [
     credentialId: "Hardware-And-Upgrade-Support",
     image: "/certificates/Hardware and Upgrade Support.png",
   },
+  {
+    id: "networking-devices-and-basic-configuration",
+    name: "Networking Devices and Basic Configuration",
+    issuer: "Cisco Networking Academy",
+    category: "Networking",
+    date: "2026",
+    credentialId: "Networking-Devices-And-Basic-Configuration",
+    image: "/certificates/Networking Devices and Basic Configuration.png",
+  },
+  {
+    id: "it-customer-support-basics",
+    name: "IT Customer Support Basics",
+    issuer: "Cisco Networking Academy",
+    category: "Networking",
+    date: "2026",
+    credentialId: "IT-Customer-Support-Basics",
+    image: "/certificates/IT Customer Support Basics.png",
+  },
+  {
+    id: "java-fundamentals",
+    name: "Java Fundamentals",
+    issuer: "Oracle Academy",
+    category: "Programming",
+    date: "2023",
+    credentialId: "Java-Fundamentals",
+    image: "/certificates/Java Fundamentals.png",
+  },
+  {
+    id: "systems-administration",
+    name: "Systems Administration",
+    issuer: "STI",
+    category: "Networking",
+    date: "2022",
+    credentialId: "Systems-Administration",
+    image: "/certificates/Systems Administration.png",
+  }
 ];
 
 const filters = ["All", "Networking", "Security", "AI & Data", "Programming"];
