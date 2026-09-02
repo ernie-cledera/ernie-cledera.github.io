@@ -140,9 +140,54 @@ const certificationsData = [
     credentialId: "Network-Addressing",
     image: "/certificates/Network Addressing and Basic Troubleshooting.png",
   },
+  {
+    id: "cpp-essentials-1",
+    name: "C++ Essentials 1",
+    issuer: "Cisco Networking Academy",
+    category: "Programming",
+    date: "2026",
+    credentialId: "Cpp-Essentials-1",
+    image: "/certificates/Cpp Essentials 1.png",
+  },
+  {
+    id: "prompt-like-an-engineer",
+    name: "Prompt Like an Engineer",
+    issuer: "Cisco Networking Academy",
+    category: "AI & Data",
+    date: "2026",
+    credentialId: "Prompt-Like-An-Engineer",
+    image: "/certificates/Prompt Like an Engineer.png",
+  },
+  {
+    id: "exploring-networking-packet-tracer",
+    name: "Exploring Networking with Cisco Packet Tracer",
+    issuer: "Cisco Networking Academy",
+    category: "Networking",
+    date: "2026",
+    credentialId: "Exploring-Networking-Packet-Tracer",
+    image: "/certificates/Exploring Networking with Cisco Packet Tracer.png",
+  },
+  {
+    id: "getting-started-packet-tracer",
+    name: "Getting Started with Cisco Packet Tracer",
+    issuer: "Cisco Networking Academy",
+    category: "Networking",
+    date: "2026",
+    credentialId: "Getting-Started-Packet-Tracer",
+    image: "/certificates/Getting Started with Cisco Packet Tracer.png",
+  },
+  {
+    id: "hardware-and-upgrade-support",
+    name: "Hardware and Upgrade Support",
+    issuer: "Cisco Networking Academy",
+    category: "Networking",
+    date: "2026",
+    credentialId: "Hardware-And-Upgrade-Support",
+    image: "/certificates/Hardware and Upgrade Support.png",
+  },
 ];
 
-const filters = ["All", "Networking", "Security", "AI & Data"];
+const filters = ["All", "Networking", "Security", "AI & Data", "Programming"];
 
 const sortedCertificationsData = [...certificationsData].sort((a, b) =>
   a.name.localeCompare(b.name)
